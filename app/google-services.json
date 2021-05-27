@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1032516290354",
+    "project_id": "raylie-recipes-43b4d",
+    "storage_bucket": "raylie-recipes-43b4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032516290354:android:3483e178b334980840792b",
+        "android_client_info": {
+          "package_name": "com.example.raylierecipes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032516290354-dqp8u0i5e4skrokdunls0hce856t8lmm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.raylierecipes",
+            "certificate_hash": "8396394f80c8d64db07b1daf775ad9d056399c56"
+          }
+        },
+        {
+          "client_id": "1032516290354-uc4h080imd5d7ce96qqd1sg1gel46fbo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnSo2rvj87t5yb6dEMeHHaToZqa3WzXek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032516290354-uc4h080imd5d7ce96qqd1sg1gel46fbo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

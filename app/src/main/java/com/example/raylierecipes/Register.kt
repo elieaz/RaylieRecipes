@@ -23,6 +23,9 @@ class Register : AppCompatActivity() {
         //setContentView(R.layout.activity_register)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_register)
 
+        binding.btnRegister.isVisible = true
+        binding.btnRegLogin.isVisible = true
+
         binding.btnRegLogin.setOnClickListener{
             val intent = Intent(this@Register, Login::class.java)
             startActivity(intent)
@@ -87,8 +90,11 @@ class Register : AppCompatActivity() {
                     false
                 }
                 else -> {
-                    Toast.makeText(applicationContext, "Registration Successful", Toast.LENGTH_SHORT).show()
+                    binding.btnRegister.isVisible = false
+                    binding.btnRegLogin.isVisible = false
                     true
+
+
                 // After successful login u will move on next page/ activity
 
                 //                val i = Intent(this,SecondActivity::class.java)
@@ -111,14 +117,18 @@ class Register : AppCompatActivity() {
                     if(task.isSuccessful) {
 
                         val firebaseUser: FirebaseUser = task.result!!.user!!
-                        Toast.makeText(applicationContext, "You have been registered successfully, your userid is ${firebaseUser.uid}", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, "You have been registered successfully \nyour userid is ${firebaseUser.uid}", Toast.LENGTH_LONG).show()
+
+                        FirebaseAuth.getInstance().signOut()
+                        finish()
 
                     }else{
-                        Toast.makeText(applicationContext, "Error Registering your Account, ${task.exception!!.message.toString()}", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, "Error Registering your Account \n${task.exception!!.message.toString()}", Toast.LENGTH_LONG).show()
+                        binding.btnRegister.isVisible = true
+                        binding.btnRegLogin.isVisible = true
                     }
                 }
             )
         }
     }
-
 }

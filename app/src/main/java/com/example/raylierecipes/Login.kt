@@ -3,50 +3,94 @@ package com.example.raylierecipes
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.example.raylierecipes.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
-class Login : AppCompatActivity() {
+class Login : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_login)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_login)
 
-        binding.btnLogRegister.setOnClickListener{
-            val intent = Intent(this@Login, Register::class.java)
-            startActivity(intent)
-            finish() //added finish to not layer activities on top of each other
+        binding.btnLogin.isVisible = true
+        binding.btnLogRegister.isVisible = true
 
 
-            binding.btnLogin.setOnClickListener{ //checking that all required fields are filled before registration
+        binding.txtForgotPass.setOnClickListener(this)
+        binding.btnLogin.setOnClickListener(this)
+        binding.btnLogRegister.setOnClickListener(this)
+            }
 
-                if(binding.inputEmail.text.toString().trim().isEmpty()){
-                    binding.inputEmail.error = "Required"
-                    Toast.makeText(applicationContext, "Email ID Required", Toast.LENGTH_SHORT).show()
+
+    override fun onClick(v: View?) {
+
+        if(v!=null) {
+            when(v.id) {
+                R.id.txtForgotPass ->{
+
                 }
-                else if (binding.inputPassword.text.toString().trim().isEmpty()) {
-                    binding.inputPassword.error = "Required"
-                    Toast.makeText(applicationContext, "Password Required", Toast.LENGTH_SHORT).show()
+                R.id.btnLogin ->{
+                    loginUser()
                 }
-                else{
-                    Toast.makeText(applicationContext, "Login Successful ", Toast.LENGTH_SHORT).show()
-
-                    // After successful login u will move on next page/ activity
-
-//                val i = Intent(this,SecondActivity::class.java)
-//                startActivity(i)
+                R.id.btnLogRegister ->{
+                    val intent = Intent(this@Login, Register::class.java)
+                    startActivity(intent)
                 }
             }
         }
+    }
 
+    private fun validateLoginDetails(): Boolean{
+        return when {
 
+            //checking that all required fields are filled before registration
 
+            binding.inputEmail.text.toString().trim{it <= ' '}.isEmpty() -> {
+                binding.inputEmail.error = "Required"
+                Toast.makeText(applicationContext, "Email Required", Toast.LENGTH_SHORT).show()
+                false
+            }
+            binding.inputPassword.text.toString().trim{it <= ' '}.isEmpty() -> {
+                binding.inputPassword.error = "Required"
+                Toast.makeText(applicationContext, "Password Required", Toast.LENGTH_SHORT).show()
+                false
+            }
+            else -> {
+                binding.btnLogin.isVisible = false
+                binding.btnLogRegister.isVisible = false
+                true
 
+            }}}
+
+    private fun loginUser(){
+
+        if(validateLoginDetails()){
+            val email: String = binding.inputEmail.text.toString().trim{it <= ' '}
+            val password: String = binding.inputPassword.text.toString().trim{it <= ' '}
+
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener{task ->
+                if(task.isSuccessful){
+
+                    // TODO go to recycler view
+                    Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_LONG).show()
+
+                } else{
+                    Toast.makeText(applicationContext, "Error\n ${task.exception!!.message.toString()}", Toast.LENGTH_LONG).show()
+                    binding.btnLogin.isVisible = true
+                    binding.btnLogRegister.isVisible = true
+                }
+            }
+        }
     }
 
 }

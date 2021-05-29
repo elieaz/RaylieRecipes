@@ -81,7 +81,8 @@ class Login : AppCompatActivity(), View.OnClickListener {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener{task ->
                 if(task.isSuccessful){
 
-                    // TODO go to recycler view
+                    val intent = Intent(this@Login, RecyclerView::class.java)
+                    startActivity(intent)
                     Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_LONG).show()
 
                 } else{

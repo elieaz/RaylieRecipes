@@ -4,15 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.example.raylierecipes.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 
-class Login : AppCompatActivity(), View.OnClickListener {
+class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityLoginBinding
 
@@ -43,7 +41,7 @@ class Login : AppCompatActivity(), View.OnClickListener {
                     loginUser()
                 }
                 R.id.btnLogRegister ->{
-                    val intent = Intent(this@Login, Register::class.java)
+                    val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -81,7 +79,7 @@ class Login : AppCompatActivity(), View.OnClickListener {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener{task ->
                 if(task.isSuccessful){
 
-                    val intent = Intent(this@Login, RecyclerView::class.java)
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_LONG).show()
 

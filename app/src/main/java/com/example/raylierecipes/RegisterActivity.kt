@@ -1,6 +1,5 @@
 package com.example.raylierecipes
 
-import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -14,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 
-class Register : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
 
@@ -27,7 +26,7 @@ class Register : AppCompatActivity() {
         binding.btnRegLogin.isVisible = true
 
         binding.btnRegLogin.setOnClickListener{
-            val intent = Intent(this@Register, Login::class.java)
+            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
             finish() //added finish to not layer activities on top of each other
         }

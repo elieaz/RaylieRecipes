@@ -6,19 +6,21 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.raylierecipes.databinding.ActivityRecyclerViewBinding
 import com.example.raylierecipes.databinding.RecipeItemBinding
 import com.example.raylierecipes.model.RecipeData
 
-class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
-    private var RecipeList = emptyList<RecipeData>()
+class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
 
-    inner class ViewHolder(val binding: RecipeItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: RecipeItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: RecipeData) {
             with(binding) { binding.recipeName.text = item.name
                             binding.recipeInfo.text = item.info
-                            //binding.recipeImg. = item.img
+                            Glide.with(itemView)
+                                .load(item.RecipeImage)
+                                .into(binding.recipeImg)
             }
         }
     }
@@ -32,9 +34,9 @@ class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(
     }
 
     override fun getItemCount(): Int {
-        return RecipeList.size
+        return recipeList.size
     }
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(RecipeList[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(recipeList[position])
 //    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        val entry = RecipeList[position]
 //        holder.binding.itemView.recipeName.text = entry.name.toString()
@@ -48,7 +50,7 @@ class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(
 
 
     fun setData(recipes:List<RecipeData>) {
-        RecipeList = recipes
+        recipeList = recipes
         notifyDataSetChanged()
     }
 

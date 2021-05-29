@@ -26,7 +26,7 @@ class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(
         holder.itemView.recipe_name.text = entry.name.toString()
         holder.itemView.recipe_info.text = entry.info.toString()
         //holder.itemView.recipe_img.setImageResource(entry.RecipeImage)
-        //holder.itemView.recipe_img.load(entry.RecipeImage)
+       // holder.itemView.recipe_img.load(entry.RecipeImage)
 
         holder.itemView.setOnClickListener(){
             Toast.makeText(holder.itemView.context, "Position: ${position + 1}", Toast.LENGTH_SHORT).show()

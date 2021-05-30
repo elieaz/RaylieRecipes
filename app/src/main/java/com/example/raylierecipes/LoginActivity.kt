@@ -35,7 +35,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         if(v!=null) {
             when(v.id) {
                 R.id.txtForgotPass ->{
-
+                    val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.btnLogin ->{
                     loginUser()
@@ -82,6 +83,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_LONG).show()
+                    finish()
 
                 } else{
                     Toast.makeText(applicationContext, "Error\n ${task.exception!!.message.toString()}", Toast.LENGTH_LONG).show()

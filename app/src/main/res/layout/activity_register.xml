@@ -14,7 +14,7 @@
         android:id="@+id/btnRegLogin"
         android:layout_width="279dp"
         android:layout_height="47dp"
-        android:text="Login"
+        android:text="Back to Login Page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

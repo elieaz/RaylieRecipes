@@ -1,9 +1,11 @@
 package com.example.raylierecipes
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,20 +17,36 @@ class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerVie
 
 
     inner class ViewHolder(private val binding: RecipeItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
         fun bind(item: RecipeData) {
-            with(binding) { binding.recipeName.text = item.name
-                            binding.recipeInfo.text = item.info
-                            Glide.with(itemView)
-                                .load(item.RecipeImage)
-                                .into(binding.recipeImg)
+            with(binding) {
+                binding.recipeName.text = item.name
+                binding.recipeInfo.text = item.info
+                Glide.with(itemView)
+                    .load(item.RecipeImage)
+                    .into(binding.recipeImg)
+
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, NewActivity::class.java)
+                    intent.putExtra("img", item.RecipeImage)
+                    intent.putExtra("name", item.name)
+                    intent.putExtra("info", item.info)
+                    itemView.context.startActivity(intent)
+                }
             }
         }
     }
+    override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
+        val newList = recipeList[position]
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recipe_item,parent,false))
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = RecipeItemBinding.inflate(layoutInflater)
+//        val img = newList.RecipeImage
+//        val name = newList.name
+//        val info = newList.info
+
+
 
         return ViewHolder(binding)
     }
@@ -37,6 +55,7 @@ class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerVie
         return recipeList.size
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(recipeList[position])
+
 //    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        val entry = RecipeList[position]
 //        holder.binding.itemView.recipeName.text = entry.name.toString()

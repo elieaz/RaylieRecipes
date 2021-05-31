@@ -1,17 +1,17 @@
 package com.example.raylierecipes
 
 import android.content.Intent
+import android.graphics.Color
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.BulletSpan
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.raylierecipes.databinding.ActivityRecyclerViewBinding
 import com.example.raylierecipes.databinding.RecipeItemBinding
 import com.example.raylierecipes.model.RecipeData
+
 
 class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
@@ -22,6 +22,8 @@ class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerVie
             with(binding) {
                 binding.recipeName.text = item.name
                 binding.recipeInfo.text = item.info
+
+
                 Glide.with(itemView)
                     .load(item.RecipeImage)
                     .into(binding.recipeImg)
@@ -51,6 +53,8 @@ class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerVie
         return ViewHolder(binding)
     }
 
+
+
     override fun getItemCount(): Int {
         return recipeList.size
     }
@@ -73,4 +77,17 @@ class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerVie
         notifyDataSetChanged()
     }
 
+}
+
+private fun getSpannableString(input: String): CharSequence? {
+    val ss = SpannableString(input)
+    var offset = 0
+    do {
+        var lineEnd = input.indexOf('\n', offset + 1)
+        if (lineEnd == -1) lineEnd = input.length
+        val line = input.substring(offset, lineEnd)
+//        ss.setSpan(ForegroundColorSpan(-0xff0100), offset, lineEnd, 0)
+        ss.setSpan(BulletSpan(15, Color.TRANSPARENT), offset, lineEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+    } while (input.indexOf('\n', offset + 1).also { offset = it } !== -1)
+    return ss
 }

@@ -24,6 +24,15 @@ class NewActivity : AppCompatActivity() {
             .load(recipeImage)
             .into(binding.RecipeImage)
 
+        //actionbar
+        val actionbar = supportActionBar
+        actionbar!!.title = "New Activity"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

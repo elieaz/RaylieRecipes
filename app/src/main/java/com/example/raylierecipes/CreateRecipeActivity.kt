@@ -45,6 +45,8 @@ class CreateRecipeActivity : AppCompatActivity() {
                     Log.w(TAG, "Error adding document", e)
                     binding.btnCreate.isVisible = true
                     Toast.makeText(applicationContext, "Error \nRecipe Was Not Added", Toast.LENGTH_SHORT).show()
+
+
                 }
 
         }
@@ -54,7 +56,16 @@ class CreateRecipeActivity : AppCompatActivity() {
         binding.btnCreate.setOnClickListener {
 
         }
+        //actionbar
+        val actionbar = supportActionBar
+        actionbar!!.title = "New Activity"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
 
     }
 }

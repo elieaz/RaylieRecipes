@@ -1,5 +1,6 @@
 package com.example.raylierecipes
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -27,12 +28,18 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
+        binding.btnAddRecipe.setOnClickListener{
+            val intent = Intent(this@MainActivity, CreateRecipeActivity::class.java)
+            startActivity(intent)
+        }
+
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         items = arrayListOf()
 
         db.collection("recipe_id")
+            .orderBy("name")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {

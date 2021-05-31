@@ -1,8 +1,11 @@
 package com.example.raylierecipes
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.example.raylierecipes.databinding.ActivityCreateRecipeBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -18,8 +21,10 @@ class CreateRecipeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_create_recipe)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_create_recipe)
+        binding.btnCreate.isVisible = true
 
         binding.btnCreate.setOnClickListener{
+            binding.btnCreate.isVisible = false
             val recipe = hashMapOf(
                 "name" to binding.RecipeName.text.toString(),
                 "RecipeImage" to binding.image.text.toString(),
@@ -29,13 +34,26 @@ class CreateRecipeActivity : AppCompatActivity() {
                 .add(recipe)
                 .addOnSuccessListener { documentReference ->
                     Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+
+                    Toast.makeText(applicationContext, "Recipe Successfully Added", Toast.LENGTH_SHORT).show()
+
+                    val intent = Intent(this@CreateRecipeActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
                 .addOnFailureListener { e ->
                     Log.w(TAG, "Error adding document", e)
+                    binding.btnCreate.isVisible = true
+                    Toast.makeText(applicationContext, "Error \nRecipe Was Not Added", Toast.LENGTH_SHORT).show()
                 }
+
         }
 
 // Add a new document with a generated ID
+
+        binding.btnCreate.setOnClickListener {
+
+        }
 
 
     }

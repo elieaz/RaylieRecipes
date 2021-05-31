@@ -18,24 +18,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddRecipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/design_default_color_primary_variant"
-        android:elevation="6dp"
-        android:hapticFeedbackEnabled="false"
-        android:src="@drawable/add"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
 
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    <com.nambimobile.widgets.efab.ExpandableFabLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- The next 3 Views will only display in portrait orientation -->
+        <com.nambimobile.widgets.efab.Overlay
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:overlay_orientation="portrait"/>
+
+        <com.nambimobile.widgets.efab.ExpandableFab
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            app:efab_orientation="portrait" />
+        <com.nambimobile.widgets.efab.FabOption
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_orientation="portrait"
+            app:label_text="Create New Recipe"
+            android:id="@+id/btnAddRecipe"
+            android:src="@drawable/pencil"
+            android:onClick="onClickPortraitOption1"/>
+        <com.nambimobile.widgets.efab.FabOption
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_orientation="portrait"
+            app:label_text="Sign out"
+            android:id="@+id/btnSignout"
+            android:src="@drawable/car"
+            android:onClick="onClickPortraitOption1"/>
+
+    </com.nambimobile.widgets.efab.ExpandableFabLayout>
+
+
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/btnAddRecipe"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:backgroundTint="@color/design_default_color_primary_variant"-->
+<!--        android:elevation="6dp"-->
+<!--        android:hapticFeedbackEnabled="false"-->
+<!--        android:src="@drawable/add"-->
+<!--        app:fabSize="normal"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="1.0">-->
+
+<!--    </com.google.android.material.floatingactionbutton.FloatingActionButton>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

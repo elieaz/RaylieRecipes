@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, CreateRecipeActivity::class.java)
             startActivity(intent)
         }
+        binding.btnSignout.setOnClickListener {
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)

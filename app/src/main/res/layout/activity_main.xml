@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- The next 3 Views will only display in portrait orientation -->
         <com.nambimobile.widgets.efab.Overlay
             android:layout_width="match_parent"
             android:layout_height="match_parent"

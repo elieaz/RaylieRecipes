@@ -49,7 +49,8 @@ class MainActivity : AppCompatActivity() {
             .addOnSuccessListener { result ->
                 for (document in result) {
                     val recipeData = RecipeData(document.data["name"] as String,
-                        document.data["info"] as String,document.data["RecipeImage"] as String)
+                        document.data["info"] as String,document.data["RecipeImage"] as String,
+                        document.data["desc"] as String)
                     Log.d(TAG, "${document.id} => ${document.data}")
                     items.add(recipeData)
 

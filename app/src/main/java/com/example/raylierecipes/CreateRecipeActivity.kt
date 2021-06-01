@@ -28,7 +28,8 @@ class CreateRecipeActivity : AppCompatActivity() {
             val recipe = hashMapOf(
                 "name" to binding.RecipeName.text.toString(),
                 "RecipeImage" to binding.image.text.toString(),
-                "info" to binding.info.text.toString()
+                "info" to binding.info.text.toString(),
+                "desc" to binding.inputSteps.text.toString()
             )
             db.collection("recipe_id")
                 .add(recipe)

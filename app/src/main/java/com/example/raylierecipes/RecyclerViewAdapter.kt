@@ -33,6 +33,7 @@ class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerVie
                     intent.putExtra("img", item.RecipeImage)
                     intent.putExtra("name", item.name)
                     intent.putExtra("info", item.info)
+                    intent.putExtra("desc", getSpannableString(item.desc))
                     itemView.context.startActivity(intent)
                 }
             }

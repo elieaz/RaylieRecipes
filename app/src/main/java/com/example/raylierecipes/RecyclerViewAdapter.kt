@@ -33,7 +33,7 @@ class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerVie
                     intent.putExtra("img", item.RecipeImage)
                     intent.putExtra("name", item.name)
                     intent.putExtra("info", item.info)
-                    intent.putExtra("desc", getSpannableString(item.desc))
+                    intent.putExtra("desc", item.desc)
                     itemView.context.startActivity(intent)
                 }
             }
@@ -80,15 +80,15 @@ class RecyclerViewAdapter(private var recipeList: List<RecipeData>): RecyclerVie
 
 }
 
-private fun getSpannableString(input: String): CharSequence? {
-    val ss = SpannableString(input)
-    var offset = 0
-    do {
-        var lineEnd = input.indexOf('\n', offset + 1)
-        if (lineEnd == -1) lineEnd = input.length
-        val line = input.substring(offset, lineEnd)
-//        ss.setSpan(ForegroundColorSpan(-0xff0100), offset, lineEnd, 0)
-        ss.setSpan(BulletSpan(15, Color.TRANSPARENT), offset, lineEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-    } while (input.indexOf('\n', offset + 1).also { offset = it } !== -1)
-    return ss
-}
+//private fun getSpannableString(input: String): CharSequence? {
+//    val ss = SpannableString(input)
+//    var offset = 0
+//    do {
+//        var lineEnd = input.indexOf('\n', offset + 1)
+//        if (lineEnd == -1) lineEnd = input.length
+//        val line = input.substring(offset, lineEnd)
+////        ss.setSpan(ForegroundColorSpan(-0xff0100), offset, lineEnd, 0)
+//        ss.setSpan(BulletSpan(15, Color.TRANSPARENT), offset, lineEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+//    } while (input.indexOf('\n', offset + 1).also { offset = it } !== -1)
+//    return ss
+//}

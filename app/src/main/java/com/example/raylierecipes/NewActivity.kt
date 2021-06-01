@@ -1,10 +1,13 @@
 package com.example.raylierecipes
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.BulletSpan
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import com.example.raylierecipes.databinding.ActivityMainBinding
 import com.example.raylierecipes.databinding.ActivityNewBinding
 
 class NewActivity : AppCompatActivity() {
@@ -18,8 +21,16 @@ class NewActivity : AppCompatActivity() {
         val recipeName = recipeIntent.getStringExtra("name")
         val recipeImage = recipeIntent.getStringExtra("img")
         val recipeInfo = recipeIntent.getStringExtra("info")
+        val recipeDesc = recipeIntent.getStringExtra("desc")
         binding.recipeName.text = recipeName
         binding.recipeInfo.text = recipeInfo
+        binding.description.text = recipeDesc
+
+        if (binding.description.text.toString().contains("\\n")) {
+            val newName = (binding.description.text as String?)?.replace("\\n", "\n")
+            binding.description.setText(newName)
+        }
+
         Glide.with(this)
             .load(recipeImage)
             .into(binding.RecipeImage)
@@ -35,4 +46,17 @@ class NewActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
+//    private fun getSpannableString(input: String): CharSequence? {
+//        val ss = SpannableString(input)
+//        var offset = 0
+//        do {
+//            var lineEnd = input.indexOf('\n', offset + 1)
+//            if (lineEnd == -1) lineEnd = input.length
+//            val line = input.substring(offset, lineEnd)
+////        ss.setSpan(ForegroundColorSpan(-0xff0100), offset, lineEnd, 0)
+//            ss.setSpan(BulletSpan(15, Color.TRANSPARENT), offset, lineEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+//        } while (input.indexOf('\n', offset + 1).also { offset = it } !== -1)
+//        return ss
+//}
 }

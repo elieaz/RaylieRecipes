@@ -53,12 +53,12 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 binding.regPass.text.toString().length <= 8 ->{
                 binding.regPass.error = "Required"
-                Toast.makeText(applicationContext, "Password must be between 8 and 12 characters", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Password must be between 9 and 12 characters", Toast.LENGTH_SHORT).show()
                     false
                 }
                 binding.regPass.text.toString().length >= 12 ->{
                 binding.regPass.error = "Required"
-                Toast.makeText(applicationContext, "Password must be between 8 and 12 characters", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Password must be between 9 and 12 characters", Toast.LENGTH_SHORT).show()
                     false
                 }
                 binding.regPass2.text.toString().trim().isEmpty() -> {

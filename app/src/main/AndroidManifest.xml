@@ -21,11 +21,13 @@
         </activity>
 
         <activity android:name=".CreateRecipeActivity"
-            android:theme="@style/AppTheme.NoActionBar2"/>
+            android:theme="@style/AppTheme.NoActionBar2"
+            android:windowSoftInputMode="adjustResize"/>
 
         <activity
             android:name=".ForgotPasswordActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".NewActivity"
             android:theme="@style/AppTheme.NoActionBar2">
 
@@ -33,10 +35,12 @@
 
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
         </activity>
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar2"/>

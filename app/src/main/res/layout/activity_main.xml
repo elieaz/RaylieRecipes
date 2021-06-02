@@ -57,7 +57,7 @@
             android:onClick="onClickPortraitOption1"
             android:src="@drawable/ic_baseline_exit"
             app:fab_orientation="portrait"
-            app:label_text="Sign out" />
+            app:label_text="Sign out and Exit" />
 
     </com.nambimobile.widgets.efab.ExpandableFabLayout>
 

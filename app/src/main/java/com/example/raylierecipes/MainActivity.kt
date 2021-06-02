@@ -1,10 +1,9 @@
 package com.example.raylierecipes
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
         binding.btnSignout.setOnClickListener {
-            finish()
+            finishAffinity()
         }
 
         recyclerView = binding.recyclerView

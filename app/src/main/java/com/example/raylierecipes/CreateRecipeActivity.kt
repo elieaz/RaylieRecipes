@@ -57,18 +57,6 @@ class CreateRecipeActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Error \nRecipe Was Not Added", Toast.LENGTH_SHORT).show()
                 }
         }
-
-// Add a new document with a generated ID
-        //actionbar
-//        val actionbar = supportActionBar
-//        actionbar!!.title = "New Activity"
-//        actionbar.setDisplayHomeAsUpEnabled(true)
-//        actionbar.setDisplayHomeAsUpEnabled(true)
     }
 
-//    override fun onSupportNavigateUp(): Boolean {
-//        onBackPressed()
-//        return true
-//
-//    }
 }

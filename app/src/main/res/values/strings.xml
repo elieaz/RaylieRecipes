@@ -5,14 +5,10 @@
     <string name="raylie_recipes">Raylie Recipes</string>
     <string name="todo">TODO</string>
     <string name="what_email_did_you_use">What email did you use?</string>
-    <string name="submit">Submit</string>
-    <string name="forgot_your_password">Forgot Your Password?</string>
     <string name="back">back</string>
     <string name="cooking_image">cooking image</string>
     <string name="signup">Signup</string>
     <string name="food">Food</string>
-    <string name="email_id">Email ID</string>
-    <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="forgot_your_password">Forgot Your Password?</string>
     <string name="new_to_raylie">New to Raylie?</string>

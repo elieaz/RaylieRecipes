@@ -82,11 +82,6 @@ class RegisterActivity : AppCompatActivity() {
                     true
 
 
-                // After successful login u will move on next page/ activity
-
-                //                val i = Intent(this,SecondActivity::class.java)
-                //                startActivity(i)
-
                 }}}
 
     private fun registerUser() {

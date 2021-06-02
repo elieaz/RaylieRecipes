@@ -43,29 +43,4 @@ class NewActivity : AppCompatActivity() {
             .load(recipeImage)
             .into(binding.RecipeImage)
 
-        //actionbar
-//        val actionbar = supportActionBar
-//        actionbar!!.title = "New Activity"
-//        actionbar.setDisplayHomeAsUpEnabled(true)
-//        actionbar.setDisplayHomeAsUpEnabled(true)
-//    }
-
-//    override fun onSupportNavigateUp(): Boolean {
-//        onBackPressed()
-//        title = binding.recipeName.toString()
-//        return true
-//    }
-
-//    private fun getSpannableString(input: String): CharSequence? {
-//        val ss = SpannableString(input)
-//        var offset = 0
-//        do {
-//            var lineEnd = input.indexOf('\n', offset + 1)
-//            if (lineEnd == -1) lineEnd = input.length
-//            val line = input.substring(offset, lineEnd)
-////        ss.setSpan(ForegroundColorSpan(-0xff0100), offset, lineEnd, 0)
-//            ss.setSpan(BulletSpan(15, Color.TRANSPARENT), offset, lineEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-//        } while (input.indexOf('\n', offset + 1).also { offset = it } !== -1)
-//        return ss
-//}
-}}
+}   }

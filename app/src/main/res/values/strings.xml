@@ -1,4 +1,31 @@
 <resources>
     <string name="app_name">Raylie Recipes</string>
     <string name="recipeimage">RecipeImage</string>
+    <string name="textview">TextView</string>
+    <string name="raylie_recipes">Raylie Recipes</string>
+    <string name="todo">TODO</string>
+    <string name="what_email_did_you_use">What email did you use?</string>
+    <string name="submit">Submit</string>
+    <string name="forgot_your_password">Forgot Your Password?</string>
+    <string name="back">back</string>
+    <string name="cooking_image">cooking image</string>
+    <string name="signup">Signup</string>
+    <string name="food">Food</string>
+    <string name="email_id">Email ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_your_password">Forgot Your Password?</string>
+    <string name="new_to_raylie">New to Raylie?</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_an_account">Create An Account</string>
+    <string name="email_id">Email ID</string>
+    <string name="i_agree_to_the_terms_and_conditions">I Agree to the Terms and Conditions</string>
+    <string name="register">Register</string>
+    <string name="create_you_own_recipe">Create You Own Recipe</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="description">Description</string>
+    <string name="image_url">Image URL</string>
+    <string name="recipe_instructions">Recipe Instructions</string>
+    <string name="submit">Submit</string>
 </resources>

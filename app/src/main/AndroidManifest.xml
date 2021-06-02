@@ -12,7 +12,8 @@
         android:theme="@style/Theme.RaylieRecipes">
 
         <activity android:name=".SplashScreenActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,28 +23,34 @@
 
         <activity android:name=".CreateRecipeActivity"
             android:theme="@style/AppTheme.NoActionBar2"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".ForgotPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
         <activity android:name=".NewActivity"
-            android:theme="@style/AppTheme.NoActionBar2">
+            android:theme="@style/AppTheme.NoActionBar2"
+            android:screenOrientation="portrait">
 
         </activity>
 
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait">
         </activity>
         <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar2"/>
+            android:theme="@style/AppTheme.NoActionBar2"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

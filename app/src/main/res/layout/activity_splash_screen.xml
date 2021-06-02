@@ -14,16 +14,18 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:alpha="0.65"
-        app:srcCompat="@drawable/ic_protruding_squares" />
+        app:srcCompat="@drawable/ic_abstract_envelope"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="420dp"
         android:fontFamily="cursive"
-        android:text="Raylie Recipes"
+        android:text="@string/raylie_recipes"
         android:textAlignment="center"
+        android:textColor="#C41B4C4D"
         android:textSize="96sp"
         android:textStyle="bold" />
 
@@ -38,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="whitebg.json">
+            app:lottie_fileName="animation.json">
 
         </com.airbnb.lottie.LottieAnimationView>
 

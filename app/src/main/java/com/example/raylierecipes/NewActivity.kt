@@ -1,10 +1,12 @@
 package com.example.raylierecipes
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BulletSpan
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
@@ -15,6 +17,12 @@ class NewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_new)
+
+        binding.btnBack.setOnClickListener {
+            val intent = Intent(this@NewActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         //Get Data
         val recipeIntent = intent
@@ -36,16 +44,17 @@ class NewActivity : AppCompatActivity() {
             .into(binding.RecipeImage)
 
         //actionbar
-        val actionbar = supportActionBar
-        actionbar!!.title = "New Activity"
-        actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setDisplayHomeAsUpEnabled(true)
-    }
+//        val actionbar = supportActionBar
+//        actionbar!!.title = "New Activity"
+//        actionbar.setDisplayHomeAsUpEnabled(true)
+//        actionbar.setDisplayHomeAsUpEnabled(true)
+//    }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        onBackPressed()
+//        title = binding.recipeName.toString()
+//        return true
+//    }
 
 //    private fun getSpannableString(input: String): CharSequence? {
 //        val ss = SpannableString(input)
@@ -59,4 +68,4 @@ class NewActivity : AppCompatActivity() {
 //        } while (input.indexOf('\n', offset + 1).also { offset = it } !== -1)
 //        return ss
 //}
-}
+}}

@@ -22,6 +22,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnLogin.isVisible = true
         binding.btnLogRegister.isVisible = true
+        binding.textViewNew.isVisible = true
 
 
         binding.txtForgotPass.setOnClickListener(this)
@@ -67,6 +68,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             else -> {
                 binding.btnLogin.isVisible = false
                 binding.btnLogRegister.isVisible = false
+                binding.textViewNew.isVisible = false
                 true
 
             }}}
@@ -83,12 +85,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_LONG).show()
-                    finish()
+                    binding.btnLogin.isVisible = true
+                    binding.btnLogRegister.isVisible = true
+                    binding.textViewNew.isVisible = true
 
                 } else{
                     Toast.makeText(applicationContext, "Error\n ${task.exception!!.message.toString()}", Toast.LENGTH_LONG).show()
                     binding.btnLogin.isVisible = true
                     binding.btnLogRegister.isVisible = true
+                    binding.textViewNew.isVisible = true
                 }
             }
         }

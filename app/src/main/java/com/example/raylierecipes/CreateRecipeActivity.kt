@@ -13,7 +13,7 @@ import com.google.firebase.ktx.Firebase
 
 class CreateRecipeActivity : AppCompatActivity() {
 
-    private val TAG: String?= "createRep"
+    private val TAG: String = "createRep"
     private lateinit var binding: ActivityCreateRecipeBinding
     val db = Firebase.firestore
 
@@ -22,9 +22,17 @@ class CreateRecipeActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_create_recipe)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_create_recipe)
         binding.btnCreate.isVisible = true
+        binding.floatingActionButton2.isVisible = true
+
+        binding.floatingActionButton2.setOnClickListener {
+            finish()
+            val intent = Intent(this@CreateRecipeActivity, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnCreate.setOnClickListener{
             binding.btnCreate.isVisible = false
+            binding.floatingActionButton2.isVisible = false
             val recipe = hashMapOf(
                 "name" to binding.RecipeName.text.toString(),
                 "RecipeImage" to binding.image.text.toString(),
@@ -45,28 +53,22 @@ class CreateRecipeActivity : AppCompatActivity() {
                 .addOnFailureListener { e ->
                     Log.w(TAG, "Error adding document", e)
                     binding.btnCreate.isVisible = true
+                    binding.floatingActionButton2.isVisible = true
                     Toast.makeText(applicationContext, "Error \nRecipe Was Not Added", Toast.LENGTH_SHORT).show()
-
-
                 }
-
         }
 
 // Add a new document with a generated ID
-
-        binding.btnCreate.setOnClickListener {
-
-        }
         //actionbar
-        val actionbar = supportActionBar
-        actionbar!!.title = "New Activity"
-        actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setDisplayHomeAsUpEnabled(true)
+//        val actionbar = supportActionBar
+//        actionbar!!.title = "New Activity"
+//        actionbar.setDisplayHomeAsUpEnabled(true)
+//        actionbar.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        onBackPressed()
+//        return true
+//
+//    }
 }

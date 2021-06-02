@@ -23,11 +23,9 @@ class RegisterActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_register)
 
         binding.btnRegister.isVisible = true
-        binding.btnRegLogin.isVisible = true
+        binding.floatingActionButton.isVisible = true
 
-        binding.btnRegLogin.setOnClickListener{
-            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-            startActivity(intent)
+        binding.floatingActionButton.setOnClickListener {
             finish() //added finish to not layer activities on top of each other
         }
 
@@ -43,16 +41,6 @@ class RegisterActivity : AppCompatActivity() {
 
             //checking that all required fields are filled before registration
 
-            binding.Fname.text.toString().trim().isEmpty() -> {
-                    binding.Fname.error = "Required"
-                    Toast.makeText(applicationContext, "First Name Required", Toast.LENGTH_SHORT).show()
-                    false
-                }
-                binding.Lname.text.toString().trim().isEmpty() -> {
-                binding.Lname.error = "Required"
-                Toast.makeText(applicationContext, "Last Name Required", Toast.LENGTH_SHORT).show()
-                    false
-                }
                 binding.regEmail.text.toString().trim().isEmpty() -> {
                 binding.regEmail.error = "Required"
                 Toast.makeText(applicationContext, "Email ID Required", Toast.LENGTH_SHORT).show()
@@ -90,7 +78,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 else -> {
                     binding.btnRegister.isVisible = false
-                    binding.btnRegLogin.isVisible = false
+                    binding.floatingActionButton.isVisible = false
                     true
 
 
@@ -124,7 +112,7 @@ class RegisterActivity : AppCompatActivity() {
                     }else{
                         Toast.makeText(applicationContext, "Error Registering your Account \n${task.exception!!.message.toString()}", Toast.LENGTH_LONG).show()
                         binding.btnRegister.isVisible = true
-                        binding.btnRegLogin.isVisible = true
+                        binding.floatingActionButton.isVisible = false
                     }
                 }
             )

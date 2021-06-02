@@ -10,21 +10,21 @@
 
     <Button
         android:id="@+id/btnLogRegister"
-        android:layout_width="308dp"
-        android:layout_height="67dp"
-        android:text="New to Raylie? \nSignup"
+        android:layout_width="306dp"
+        android:layout_height="46dp"
+        android:text="@string/signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintVertical_bias="0.6" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="415dp"
         android:layout_height="240dp"
-        android:contentDescription="Food"
+        android:contentDescription="@string/food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Email ID"
+        android:hint="@string/email_id"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:importantForAutofill="no"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,18 +65,23 @@
         android:layout_width="306dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
-        android:text="Login"
+        android:background="@color/white"
+        android:outlineSpotShadowColor="@color/blue"
+        android:rotationY="-3"
+        android:shadowColor="#D2009688"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputPassword"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintVertical_bias="0.19"
+        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.MediumComponent" />
 
     <TextView
         android:id="@+id/txtForgotPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Your Password?"
+        android:text="@string/forgot_your_password"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +89,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputPassword"
         app:layout_constraintVertical_bias="0.07999998" />
+
+    <TextView
+        android:id="@+id/textViewNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_to_raylie"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.87" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

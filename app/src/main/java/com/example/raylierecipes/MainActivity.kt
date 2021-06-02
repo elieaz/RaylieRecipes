@@ -16,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAG: String?= "firestore"
+    private val TAG: String = "firestore"
     private lateinit var binding: ActivityMainBinding
 
     var db = Firebase.firestore
@@ -28,13 +28,14 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
+//        actionBar?.hide()
+
         binding.btnAddRecipe.setOnClickListener{
             val intent = Intent(this@MainActivity, CreateRecipeActivity::class.java)
             startActivity(intent)
+            finish()
         }
         binding.btnSignout.setOnClickListener {
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(intent)
             finish()
         }
 
